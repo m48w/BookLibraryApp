@@ -1,0 +1,32 @@
+[
+  {
+    "ContainingType": "BookLibraryServer.Controllers.MasterController",
+    "Method": "GetAuthors",
+    "RelativePath": "api/v1/master/authors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookLibraryServer.Controllers.MasterController",
+    "Method": "GetGenres",
+    "RelativePath": "api/v1/master/genres",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookLibraryServer.Controllers.MasterController",
+    "Method": "GetUsers",
+    "RelativePath": "api/v1/master/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
