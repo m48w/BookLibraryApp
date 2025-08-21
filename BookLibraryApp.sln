@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{F95F473B-E98A-ACD6-1986-755F447BE36F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DigicLibrary", "DigicLibrary", "{3716C632-E7A0-2796-3CA6-61DB49B3F7ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{E5369408-3E54-A3F6-FDCE-A50BC642EB83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibraryServer", "app\DigicLibrary\server\BookLibraryServer\BookLibraryServer.csproj", "{D4766B64-16C6-31AF-0CDA-010653B48089}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibraryServer.Contract", "app\DigicLibrary\server\BookLibraryServer.Contract\BookLibraryServer.Contract.csproj", "{8EC736BA-40AF-DE85-3245-D311414234F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4766B64-16C6-31AF-0CDA-010653B48089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4766B64-16C6-31AF-0CDA-010653B48089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4766B64-16C6-31AF-0CDA-010653B48089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4766B64-16C6-31AF-0CDA-010653B48089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC736BA-40AF-DE85-3245-D311414234F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC736BA-40AF-DE85-3245-D311414234F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC736BA-40AF-DE85-3245-D311414234F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC736BA-40AF-DE85-3245-D311414234F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3716C632-E7A0-2796-3CA6-61DB49B3F7ED} = {F95F473B-E98A-ACD6-1986-755F447BE36F}
+		{E5369408-3E54-A3F6-FDCE-A50BC642EB83} = {3716C632-E7A0-2796-3CA6-61DB49B3F7ED}
+		{D4766B64-16C6-31AF-0CDA-010653B48089} = {E5369408-3E54-A3F6-FDCE-A50BC642EB83}
+		{8EC736BA-40AF-DE85-3245-D311414234F4} = {E5369408-3E54-A3F6-FDCE-A50BC642EB83}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88EE48D1-53A1-4EDD-BA7B-E4DB8F3DBC32}
+	EndGlobalSection
+EndGlobal
