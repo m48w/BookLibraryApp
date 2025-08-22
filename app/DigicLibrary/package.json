@@ -7,7 +7,12 @@
     "dev": "vite --host",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "scaffold": "npm run scaffold:model && npm run scaffold:api",
+    "scaffold:model": "node ./util/oas2model.mjs http://localhost:5174/swagger/v1/swagger.json ./src/api/models && npm run fix",
+    "scaffold:api": "node ./util/oas2api.mjs http://localhost:5174/swagger/v1/swagger.json ./src/api && npm run fix"
+
   },
   "dependencies": {
     "react": "^19.1.1",
