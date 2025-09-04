@@ -8,6 +8,7 @@ IF OBJECT_ID('[dbo].[Books]', 'U') IS NOT NULL DROP TABLE [dbo].[Books]
 IF OBJECT_ID('[dbo].[Statuses]', 'U') IS NOT NULL DROP TABLE [dbo].[Statuses]
 IF OBJECT_ID('[dbo].[StatusCategories]', 'U') IS NOT NULL DROP TABLE [dbo].[StatusCategories]
 IF OBJECT_ID('[dbo].[Users]', 'U') IS NOT NULL DROP TABLE [dbo].[Users]
+IF OBJECT_ID('[dbo].[Departments]', 'U') IS NOT NULL DROP TABLE [dbo].[Departments]
 IF OBJECT_ID('[dbo].[Authors]', 'U') IS NOT NULL DROP TABLE [dbo].[Authors]
 IF OBJECT_ID('[dbo].[Publishers]', 'U') IS NOT NULL DROP TABLE [dbo].[Publishers]
 IF OBJECT_ID('[dbo].[Genres]', 'U') IS NOT NULL DROP TABLE [dbo].[Genres]
@@ -37,10 +38,22 @@ CREATE TABLE [dbo].[Statuses] (
 GO
 
 -- -----------------------------------------------------
+-- Table `Departments` (部署テーブル)
+-- -----------------------------------------------------
+CREATE TABLE [dbo].[Departments] (
+  [department_id] INT IDENTITY(1,1) NOT NULL,
+  [name] NVARCHAR(50) NOT NULL,
+  PRIMARY KEY ([department_id]),
+  UNIQUE ([name])
+);
+GO
+
+-- -----------------------------------------------------
 -- Table `Users` (社員テーブル)
 -- -----------------------------------------------------
 CREATE TABLE [dbo].[Users] (
-  [user_id] INT IDENTITY(1,1) NOT NULL,
+  [user_id] NVARCHAR(255) NOT NULL,
+  [department_id] INT NULL,
   [name] NVARCHAR(50) NOT NULL,
   [name_kana] NVARCHAR(50) NULL,
   [position] NVARCHAR(50) NULL,
@@ -55,7 +68,6 @@ CREATE TABLE [dbo].[Users] (
   [phone_emergency] NVARCHAR(20) NULL,
   [charge] MONEY NULL,
   [classification_number] INT NULL,
-  [call_code] NVARCHAR(128) NULL,
   [history_flag] BIT NULL,
   [is_admin_staff] BIT NULL,
   [is_field_staff] BIT NULL,
@@ -63,7 +75,8 @@ CREATE TABLE [dbo].[Users] (
   [hire_date] DATETIME NULL,
   [info_print_notes] NVARCHAR(2048) NULL,
   PRIMARY KEY ([user_id]),
-  UNIQUE ([email])
+  UNIQUE ([email]),
+  FOREIGN KEY ([department_id]) REFERENCES [dbo].[Departments]([department_id])
 );
 GO
 
@@ -152,7 +165,7 @@ GO
 CREATE TABLE [dbo].[Rentals] (
   [rental_id] INT IDENTITY(1,1) NOT NULL,
   [book_id] INT NOT NULL,
-  [user_id] INT NOT NULL,
+  [user_id] NVARCHAR(255) NOT NULL,
   [rental_date] DATE NOT NULL,
   [due_date] DATE NOT NULL,
   [return_date] DATE NULL,
@@ -170,7 +183,7 @@ GO
 CREATE TABLE [dbo].[Feedbacks] (
   [feedback_id] INT IDENTITY(1,1) NOT NULL,
   [book_id] INT NOT NULL,
-  [user_id] INT NOT NULL,
+  [user_id] NVARCHAR(255) NOT NULL,
   [comment] NVARCHAR(MAX) NULL,
   [rating] INT NULL,
   [created_at] DATETIME NULL DEFAULT GETDATE(),
@@ -191,7 +204,7 @@ CREATE TABLE [dbo].[Requests] (
   [publisher] NVARCHAR(255) NULL,
   [isbn] NVARCHAR(20) NULL,
   [reason] NVARCHAR(MAX) NULL,
-  [user_id] INT NOT NULL,
+  [user_id] NVARCHAR(255) NOT NULL,
   [status_id] INT NOT NULL,
   [created_at] DATETIME NULL DEFAULT GETDATE(),
   [updated_at] DATETIME NULL DEFAULT GETDATE(),
