@@ -19,10 +19,17 @@ namespace BookLibraryServer.Repositories.Master
         {
             var query = @"
 SELECT
-  [user_id] [Id]
-  , [name] [Name]
-  , [email] [Email]
-FROM [dbo].[Users]
+  U.user_id AS Id
+  , U.name AS Name
+  , U.email AS Email
+  , U.call_code AS CallCode
+  , U.name_kana AS NameKana
+  , U.notes AS Notes
+  , D.department_id AS DepartmentId
+  , D.name AS DepartmentName
+FROM dbo.Users AS U
+LEFT JOIN dbo.Departments AS D
+  ON U.department_id = D.department_id
 ";
 
             return await _dbConnectionFactory.ExecuteAsync(async (connection) =>
