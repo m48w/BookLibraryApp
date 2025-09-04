@@ -1,4 +1,4 @@
---テーブル空にする
+-- テーブル空にする
 -- 外部キー制約を考慮し、依存関係の末端（子テーブル）から先にデータを削除します
 -- 外部キー制約があるため、TRUNCATEではなくDELETEを使用します
 DELETE FROM [dbo].[Rentals];
@@ -9,19 +9,22 @@ DELETE FROM [dbo].[Books];
 DELETE FROM [dbo].[Statuses];
 DELETE FROM [dbo].[StatusCategories];
 DELETE FROM [dbo].[Users];
+DELETE FROM [dbo].[Departments];
 DELETE FROM [dbo].[Authors];
 DELETE FROM [dbo].[Publishers];
 DELETE FROM [dbo].[Genres];
 GO
 
 -- IDENTITY値をリセットして、IDが1から始まるようにします
+-- NVARCHAR(255)型のuser_idにはDBCC CHECKIDENTは不要です
 DBCC CHECKIDENT ('[dbo].[Rentals]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[Feedbacks]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[Requests]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[Books]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[Statuses]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[StatusCategories]', RESEED, 0);
-DBCC CHECKIDENT ('[dbo].[Users]', RESEED, 0);
+-- DBCC CHECKIDENT ('[dbo].[Users]', RESEED, 0);  -- NVARCHAR(255)型の主キーはIDENTITYではないため不要
+DBCC CHECKIDENT ('[dbo].[Departments]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[Authors]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[Publishers]', RESEED, 0);
 DBCC CHECKIDENT ('[dbo].[Genres]', RESEED, 0);
@@ -69,17 +72,25 @@ INSERT INTO [dbo].[Authors] ([name]) VALUES
 INSERT INTO [dbo].[Publishers] ([name]) VALUES
 (N'講談社'), (N'集英社'), (N'新潮社'), (N'文藝春秋'), (N'ダイヤモンド社'), (N'早川書房'), (N'静山社'), (N'双葉社'), (N'きこ書房'), (N'河出書房新社');
 
+-- Departments (部署)
+INSERT INTO [dbo].[Departments] ([name]) VALUES
+(N'総務部'), (N'開発部'), (N'営業部');
+
 -- -----------------------------------------------------
 -- 2. メインデータ登録
 -- -----------------------------------------------------
 
 -- Users (社員)
-INSERT INTO [dbo].[Users] ([name], [name_kana], [position], [postal_code], [address_1], [address_2], [email], [phone_tel], [hire_date], [is_admin_staff]) VALUES
-(N'山田 太郎', N'ヤマダ タロウ', N'部長', N'100-0005', N'東京都千代田区丸の内', N'1-1-1', 'taro.yamada@example.com', '03-1234-5678', '2010-04-01', 1),
-(N'鈴木 花子', N'スズキ ハナコ', N'課長', N'540-0002', N'大阪府大阪市中央区大阪城', N'1-1', 'hanako.suzuki@example.com', '06-9876-5432', '2012-04-01', 0),
-(N'佐藤 次郎', N'サトウ ジロウ', N'係長', N'460-0001', N'愛知県名古屋市中区三の丸', N'1-1-1', 'jiro.sato@example.com', '052-1111-2222', '2015-10-01', 0),
-(N'高橋 美咲', N'タカハシ ミサキ', N'主任', N'810-0001', N'福岡県福岡市中央区天神', N'1-8-1', 'misaki.takahashi@example.com', '092-3333-4444', '2018-04-01', 0),
-(N'田中 健太', N'タナカ ケンタ', N'一般社員', N'060-0001', N'北海道札幌市中央区北一条西', N'2丁目', 'kenta.tanaka@example.com', '011-5555-6666', '2020-04-01', 0);
+DECLARE @department_general INT = (SELECT [department_id] FROM [dbo].[Departments] WHERE [name] = N'総務部');
+DECLARE @department_development INT = (SELECT [department_id] FROM [dbo].[Departments] WHERE [name] = N'開発部');
+DECLARE @department_sales INT = (SELECT [department_id] FROM [dbo].[Departments] WHERE [name] = N'営業部');
+
+INSERT INTO [dbo].[Users] ([user_id], [department_id], [name], [name_kana], [position], [postal_code], [address_1], [address_2], [email], [phone_tel], [hire_date], [is_admin_staff]) VALUES
+(N'E1001', @department_general, N'山田 太郎', N'ヤマダ タロウ', N'部長', N'100-0005', N'東京都千代田区丸の内', N'1-1-1', 'taro.yamada@example.com', '03-1234-5678', '2010-04-01', 1),
+(N'E1002', @department_development, N'鈴木 花子', N'スズキ ハナコ', N'課長', N'540-0002', N'大阪府大阪市中央区大阪城', N'1-1', 'hanako.suzuki@example.com', '06-9876-5432', '2012-04-01', 0),
+(N'E1003', @department_development, N'佐藤 次郎', N'サトウ ジロウ', N'係長', N'460-0001', N'愛知県名古屋市中区三の丸', N'1-1-1', 'jiro.sato@example.com', '052-1111-2222', '2015-10-01', 0),
+(N'E1004', @department_sales, N'高橋 美咲', N'タカハシ ミサキ', N'主任', N'810-0001', N'福岡県福岡市中央区天神', N'1-8-1', 'misaki.takahashi@example.com', '092-3333-4444', '2018-04-01', 0),
+(N'E1005', @department_general, N'田中 健太', N'タナカ ケンタ', N'一般社員', N'060-0001', N'北海道札幌市中央区北一条西', N'2丁目', 'kenta.tanaka@example.com', '011-5555-6666', '2020-04-01', 0);
 
 -- Books (書籍)
 -- ステータスIDを変数に格納
