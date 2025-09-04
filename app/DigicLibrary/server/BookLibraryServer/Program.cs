@@ -20,11 +20,15 @@ namespace BookLibraryServer
             builder.Services.AddScoped<BookLibraryServer.Contract.Repositories.Master.IAuthorRepository, BookLibraryServer.Repositories.Master.AuthorRepository>();
             builder.Services.AddScoped<BookLibraryServer.Contract.Repositories.Master.IGenreRepository, BookLibraryServer.Repositories.Master.GenreRepository>();
             builder.Services.AddScoped<BookLibraryServer.Contract.Repositories.Master.IUserRepository, BookLibraryServer.Repositories.Master.UserRepository>();
+            builder.Services.AddScoped<BookLibraryServer.Contract.Repositories.Master.IDepartmentRepository, BookLibraryServer.Repositories.Master.DepartmentRepository>();
+            builder.Services.AddScoped<BookLibraryServer.Contract.Repositories.Master.IPublisherRepository, BookLibraryServer.Repositories.Master.PublisherRepository>();
 
             // Logic
             builder.Services.AddScoped<BookLibraryServer.Contract.Logic.Master.IAuthorLogic, BookLibraryServer.Logic.Master.AuthorLogic>();
             builder.Services.AddScoped<BookLibraryServer.Contract.Logic.Master.IGenreLogic, BookLibraryServer.Logic.Master.GenreLogic>();
             builder.Services.AddScoped<BookLibraryServer.Contract.Logic.Master.IUserLogic, BookLibraryServer.Logic.Master.UserLogic>();
+            builder.Services.AddScoped<BookLibraryServer.Contract.Logic.Master.IDepartmentLogic, BookLibraryServer.Logic.Master.DepartmentLogic>();
+            builder.Services.AddScoped<BookLibraryServer.Contract.Logic.Master.IPublisherLogic, BookLibraryServer.Logic.Master.PublisherLogic>();
 
             // Add services to the container.
 

@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\koko\\KOKO\\sample_code\\mk_sample\\BookLibraryApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D4766B64-16C6-31AF-0CDA-010653B48089}|app\\DigicLibrary\\server\\BookLibraryServer\\BookLibraryServer.csproj|c:\\users\\koko\\koko\\sample_code\\mk_sample\\booklibraryapp\\app\\digiclibrary\\server\\booklibraryserver\\repositories\\master\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4766B64-16C6-31AF-0CDA-010653B48089}|app\\DigicLibrary\\server\\BookLibraryServer\\BookLibraryServer.csproj|solutionrelative:app\\digiclibrary\\server\\booklibraryserver\\repositories\\master\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4766B64-16C6-31AF-0CDA-010653B48089}|app\\DigicLibrary\\server\\BookLibraryServer\\BookLibraryServer.csproj|c:\\users\\koko\\koko\\sample_code\\mk_sample\\booklibraryapp\\app\\digiclibrary\\server\\booklibraryserver\\models\\master\\usersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4766B64-16C6-31AF-0CDA-010653B48089}|app\\DigicLibrary\\server\\BookLibraryServer\\BookLibraryServer.csproj|solutionrelative:app\\digiclibrary\\server\\booklibraryserver\\models\\master\\usersmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +35,35 @@
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\koko\\KOKO\\sample_code\\mk_sample\\BookLibraryApp\\app\\DigicLibrary\\server\\BookLibraryServer\\Repositories\\Master\\UserRepository.cs",
+              "RelativeDocumentMoniker": "app\\DigicLibrary\\server\\BookLibraryServer\\Repositories\\Master\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\koko\\KOKO\\sample_code\\mk_sample\\BookLibraryApp\\app\\DigicLibrary\\server\\BookLibraryServer\\Repositories\\Master\\UserRepository.cs",
+              "RelativeToolTip": "app\\DigicLibrary\\server\\BookLibraryServer\\Repositories\\Master\\UserRepository.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAQwDYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T02:40:03.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersModel.cs",
+              "DocumentMoniker": "C:\\Users\\koko\\KOKO\\sample_code\\mk_sample\\BookLibraryApp\\app\\DigicLibrary\\server\\BookLibraryServer\\Models\\Master\\UsersModel.cs",
+              "RelativeDocumentMoniker": "app\\DigicLibrary\\server\\BookLibraryServer\\Models\\Master\\UsersModel.cs",
+              "ToolTip": "C:\\Users\\koko\\KOKO\\sample_code\\mk_sample\\BookLibraryApp\\app\\DigicLibrary\\server\\BookLibraryServer\\Models\\Master\\UsersModel.cs",
+              "RelativeToolTip": "app\\DigicLibrary\\server\\BookLibraryServer\\Models\\Master\\UsersModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T02:39:55.049Z"
             }
           ]
         }

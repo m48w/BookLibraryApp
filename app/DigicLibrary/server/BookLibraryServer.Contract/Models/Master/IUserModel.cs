@@ -9,7 +9,7 @@ namespace BookLibraryServer.Contract.Models.Master
     public interface IUserModel : IMasterModel
     {
         public string? Email { get; }
-        public string? CallCode { get; }
+        public string? Code { get; }
         public string? NameKana { get; }
         public string? Notes { get; }
         public int? DepartmentId { get; }
